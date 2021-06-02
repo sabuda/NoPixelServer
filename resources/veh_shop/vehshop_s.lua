@@ -44,7 +44,7 @@ AddEventHandler('carshop:requesttable', function()
     local user = exports["np-base"]:getModule("Player"):GetUser(src)
     exports.ghmattimysql:execute('SELECT * FROM vehicle_display', function(result)
     print(json.encode(carTable))
-    for k,v in pairs(result[1]) do
+    for k,v in pairs(result) do
         carTable[v.id] = v
         v.price = carTable[v.id].baseprice
     end
